@@ -3,7 +3,7 @@
  */
 
 public enum Config {
-    /**/
+    /*长 中 短*/
     L_TiME(5000), M_TIME(3000),S_TIME(1000);
 
     private final int timeout;
