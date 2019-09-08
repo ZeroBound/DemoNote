@@ -7,23 +7,23 @@ import java.net.Socket;
  * @author zzw
  * @date 2019/9/8
  **/
-public class Client extends Thread {
+public class Client2 extends Thread {
     private InputStream input = null;
     private OutputStream output = null;
     private BufferedReader bufferedInput = null;
     private Socket socket = null;
 
-    public Client() {
+    public Client2() {
     }
 
-    public Client(int port) {
+    public Client2(int port) {
         // 初始化时连接服务器
         try {
             socket = new Socket("127.0.0.1", port);
             input = socket.getInputStream();
             output = socket.getOutputStream();
-            System.out.println("======client1=====");
             // 验证用户信息
+            System.out.println("======client2=====");
             login();
         } catch (IOException e) {
             e.printStackTrace();
@@ -32,7 +32,7 @@ public class Client extends Thread {
 
     public static void main(String[] args) {
         int port = 9003;
-        Client client = new Client(port);
+        Client2 client = new Client2(port);
     }
 
 
