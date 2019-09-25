@@ -14,17 +14,28 @@ public class ChatTools {
     /**保存线程处理的对象 **/
     private static ArrayList<ServerThread> stList=new ArrayList<ServerThread>();
 
-    //不需要实例化类，因此构造器为私有
+    /**
+     * 不需要实例化类，因此构造器为私有
+     */
     private ChatTools() {}
 
-    //将一个客户对应的线程处理对象加入到队列中
+    /**
+     * 将一个客户对应的线程处理对象加入到队列中
+     * @param st 服务器线程
+     * @throws IOException
+     */
     public static void addClient(ServerThread st) throws IOException {
         //将这个线程处理对象加入到队列中
         stList.add(st);
         castMsg(st.getOwnerUser(),"我上线了！目前人数："+stList.size());
     }
 
-    //发送消息给其他用户
+    /**
+     * 发送消息给其他用户
+     * @param sender 发送者
+     * @param msg 信息
+     * @throws IOException
+     */
     public static void castMsg(UserInfo sender,String msg) throws IOException {
         //加上说的对象
         String senderName = sender.getName();

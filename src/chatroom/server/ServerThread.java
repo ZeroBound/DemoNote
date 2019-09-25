@@ -11,11 +11,17 @@ import java.net.Socket;
  **/
 
 public class ServerThread extends Thread{
-    //线程中的处理对象
+    /**
+     * 线程中的处理对象
+     */
     private Socket client;
-    //输出流对象
+    /**
+     * 输出流对象
+     */
     private OutputStream ous;
-    //用户信息对象
+    /**
+     * 用户信息对象
+     */
     private UserInfo user;
 
     public ServerThread(Socket client) {
@@ -35,14 +41,21 @@ public class ServerThread extends Thread{
         }
     }
 
-    /**在显示屏中打印信息，例如"用户名"、"密码"等等**/
+    /**
+     * 在显示屏中打印信息，例如"用户名"、"密码"等等
+     * @param msg 信息
+     * @throws IOException
+     */
     public void sendMsg2Me(String msg) throws IOException {
         msg+="\r\n";
         ous.write(msg.getBytes());
         ous.flush();
     }
 
-
+    /**
+     * 处理通讯信息
+     * @throws IOException
+     */
     private void processSocket() throws IOException {
         InputStream ins=client.getInputStream();
         ous=client.getOutputStream();

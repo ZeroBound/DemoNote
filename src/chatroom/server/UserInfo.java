@@ -10,7 +10,7 @@ public class UserInfo {
     /** 密码 */
     private String password;
     /** 登录时间 */
-    private String loignTime;
+    private String loginTime;
     /** 客户机端口名 */
     private String address;
 

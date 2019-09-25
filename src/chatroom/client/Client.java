@@ -33,6 +33,7 @@ public class Client extends Thread {
     public static void main(String[] args) {
         int port = 9003;
         Client client = new Client(port);
+        client.start();
     }
 
 
@@ -43,6 +44,7 @@ public class Client extends Thread {
         try {
             bufferedInput = new BufferedReader(new InputStreamReader(input));
             String line;
+            // 登录限制 读取服务器的两次信息(用户名和密码提示信息，输入)
             while (login < max) {
                 // 获取消息
                 if ((line = bufferedInput.readLine()) != null) {

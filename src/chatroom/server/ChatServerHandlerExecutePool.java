@@ -22,7 +22,7 @@ public class ChatServerHandlerExecutePool {
                 new ArrayBlockingQueue<Runnable>(queueSize));
     }
 
-    public void execute(java.lang.Runnable task) {
+    public void execute(Runnable task) {
         executor.execute(task);
     }
 
