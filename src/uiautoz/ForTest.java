@@ -39,7 +39,7 @@ public class ForTest {
 		PositionQuery position = new PositionQuery();
 		Element display_element = position.findElementByText("显示");
 		device.tap(display_element);
-
+		device.tap(display_element);
 
 		int[][] b = {{1, 3, 5}, {1, 3, 5}};
 		System.out.println(device.mergeToString("_" ,b));

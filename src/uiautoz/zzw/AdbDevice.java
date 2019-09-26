@@ -12,6 +12,8 @@ import uiautoz.zzw.utils.*;
 
 /**
  * @author zzw
+ * 
+ * Adb command 
  */
 public class AdbDevice {
 	private static Pattern PATTERN_NUM = Pattern.compile("([0-9]+)");
@@ -427,8 +429,7 @@ public class AdbDevice {
 	/**
 	 * 发送一个点击事件
 	 *
-	 * @param e
-	 *            元素对象
+	 * @param e 元素对象
 	 */
 	public void tap(Element e) {
 		ShellUtils.shell("input tap " + e.getX() + " " + e.getY());
@@ -462,16 +463,11 @@ public class AdbDevice {
 	/**
 	 * 发送一个滑动事件
 	 *
-	 * @param startX
-	 *            起始x坐标
-	 * @param startY
-	 *            起始y坐标
-	 * @param endX
-	 *            结束x坐标
-	 * @param endY
-	 *            结束y坐标
-	 * @param ms
-	 *            持续时间
+	 * @param startX 起始x坐标
+	 * @param startY 起始y坐标
+	 * @param endX 结束x坐标
+	 * @param endY 结束y坐标
+	 * @param ms 持续时间
 	 */
 	public void swipe(double startX, double startY, double endX, double endY, long ms) {
 
@@ -619,8 +615,7 @@ public class AdbDevice {
 	/**
 	 * 清除文本
 	 *
-	 * @param text
-	 *            清除文本框中的text
+	 * @param text 清除文本框中的text
 	 */
 	public void clearText(String text) {
 		int length = text.length();
