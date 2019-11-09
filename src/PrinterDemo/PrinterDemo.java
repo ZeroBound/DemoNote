@@ -32,6 +32,7 @@ class ColorPrinter extends Printer{
 	public ColorPrinter(String brand){
 		super(brand);
 	}
+	@Override
 	public void print(String content){
 		System.out.println(getBrand()+"color:"+content);
 	}
@@ -42,6 +43,7 @@ class BlackPrinter extends Printer{
 	public BlackPrinter (String brand){
 		super(brand);
 	}
+	@Override
 	public void print(String content){
 		System.out.println(getBrand()+"black:"+content);
 	}

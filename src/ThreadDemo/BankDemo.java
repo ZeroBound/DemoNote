@@ -14,6 +14,7 @@ class BankThread extends Thread{
 	public BankThread(Bank bank){
 		this.bank=bank;
 	}
+	@Override
 	public void run(){
 		System.out.println("ȡǮ"+bank.getMoney(400));
 	}
@@ -22,7 +23,7 @@ class BankThread extends Thread{
 
 class Bank{
 	private int  money=500;
-	//��һ���߳�ȥ����ͬ��������ʱ������߳̾ͻ�ȡ�˵�ǰ���������
+
 	public synchronized int getMoney(int number){
 		//synchronized (this){}
 		if(number<0){

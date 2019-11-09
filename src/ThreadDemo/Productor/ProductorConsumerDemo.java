@@ -1,6 +1,9 @@
 package ThreadDemo.Productor;
 import java.util.*;
 
+/**
+ * @author zzw
+ */
 public class ProductorConsumerDemo{
 	public static void main(String [] args){
 		Basket basket=new Basket();
@@ -11,7 +14,9 @@ public class ProductorConsumerDemo{
 	}
 }
 
-//������
+/**
+ * 产品类
+ */
 class Productor extends Thread{
 	private Basket basket=null;
 	
@@ -19,11 +24,15 @@ class Productor extends Thread{
 		super();
 		this.basket=basket;
 	}
+	@Override
 	public void run(){
 		basket.pushApple();
 	}
 }
-//������
+
+/**
+ * 客户类
+ */
 class Consumer extends Thread{
 	private Basket basket=null;
 	
@@ -31,6 +40,7 @@ class Consumer extends Thread{
 		super();
 		this.basket=basket;
 	}
+	@Override
 	public void run(){
 		basket.popApple();
 	}
@@ -39,27 +49,31 @@ class Consumer extends Thread{
 
 
 class Basket{
+	private static final int CAPS = 20;
 	private LinkedList<Apple> basket=new LinkedList<Apple>();
-	//��4��ƻ��
+
+	/**
+	 *
+	 */
 	public synchronized void pushApple(){
-		for(int i=0;i<20;i++){
+		for(int i=0;i<CAPS;i++){
 			Apple apple=new Apple(i);
 			push(apple);
 		}
 	}
-	//ȡ4��ƻ��
+	/***/
 	public synchronized void popApple(){
-		for(int i=0;i<20;i++){
+		for(int i=0;i<CAPS;i++){
 			pop();
 		}
 	}
-	
-	
-	//�����ӷ�ƻ��
+
+
+	/***/
 	private void push(Apple apple){
-		if(basket.size()==5){
+		if(5 == basket.size()){
 			try{
-				wait();//�ȴ����ͷŵ�ǰ�������
+				wait();//等待线程
 			}catch(Exception e){
 				e.printStackTrace();
 			}
@@ -70,15 +84,14 @@ class Basket{
 			}
 		}
 		basket.addFirst(apple);
-		System.out.println("��ţ�"+apple.toString());
-		notify();//֪ͨ������������
+		System.out.println("放入 "+apple.toString());
+		notify();// 通知其他线程
 	}
-	//������ȡƻ��
+	/***/
 	private void pop(){
-		//��������ƻ����λ0��ʱ��͵ȴ���֪ͨ������������
 		if(basket.size()==0){
 			try{
-				wait();//�ȴ����ͷŵ�ǰ�������
+				wait();
 			}catch(Exception e){
 				e.printStackTrace();
 			}
@@ -89,18 +102,22 @@ class Basket{
 			}
 		}
 		Apple apple=basket.removeFirst();
-		System.out.println("�Ե���"+apple.toString());
-		notify();//֪ͨ������������
+		System.out.println("取出 "+apple.toString());
+		notify();
 	}
 }
-//ƻ����
+
+/**
+ * 苹果类
+ */
 class Apple{
 	private int id;
 	public Apple(int id){
 		this.id=id;
 	}
 	
+	@Override
 	public String toString(){
-		return "ƻ��"+(id+1);
+		return "Apple "+(id+1);
 	}
 }

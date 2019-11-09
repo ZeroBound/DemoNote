@@ -1,5 +1,8 @@
 package uiautoz.zzw;
 
+/**
+ * @author zzw
+ */
 public interface AndroidKeyCode {
 	int POWER = 26;
 	int BACK = 4;

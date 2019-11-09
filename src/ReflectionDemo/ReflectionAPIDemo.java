@@ -1,19 +1,21 @@
+package ReflectionDemo;
+
 public class ReflectionAPIDemo{
 	public static void main (String [] args) throws Exception{
-		//»ñÈ¡EmployeeÕâ¸öÀàËù¹ØÁªµÄclass¶ÔÏó
+		//è·å–Employeeè¿™ä¸ªç±»æ‰€å…³è”çš„classå¯¹è±¡
 		Class<?> classType = Class.forName("Employee");
-		//Í¨¹ı·´Éä»úÖÆÀ´¹¹ÔìÒ»¸öEmploµÄÊµÀı¶ÔÏó£¬Ä¬ÈÏµ÷ÓÃÎŞ²ÎµÄ¹¹Ôì·½·¨
+		//é€šè¿‡åå°„æœºåˆ¶æ¥æ„é€ ä¸€ä¸ªEmploçš„å®ä¾‹å¯¹è±¡ï¼Œé»˜è®¤è°ƒç”¨æ— å‚çš„æ„é€ æ–¹æ³•
 		Employee employee=(Employee)classType.newInstance();
-	
-		//µ÷ÓÃÖ¸¶¨µÄ¹¹Ôì·½·¨À´¹¹Ôì¶ÔÏó£¬ÎŞ²ÎµÄ¹¹Ôì·½·¨
-		
-	} 
+
+		//è°ƒç”¨æŒ‡å®šçš„æ„é€ æ–¹æ³•æ¥æ„é€ å¯¹è±¡ï¼Œæ— å‚çš„æ„é€ æ–¹æ³•
+
+	}
 }
 
 class Employee{
 	private String name;
 	private int age;
-	
+
 	public Employee(){
 		System.out.println("_____");
 	}
@@ -21,7 +23,7 @@ class Employee{
 		this.name = name;
 		this.age = age;
 	}
-	
+
 	public String getName(){
 		return name;
 	}

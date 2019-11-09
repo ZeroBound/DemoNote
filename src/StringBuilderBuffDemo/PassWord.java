@@ -1,6 +1,9 @@
 package StringBuilderBuffDemo;
 
 import java.util.*;
+/**
+ * @author zzw
+ */
 public class PassWord{
 	public static void main (String [] args){
 		System.out.println("mima="+GetPW.password());
@@ -9,7 +12,9 @@ public class PassWord{
 
 class GetPW{
 	public static String password(){
-		char number [] ={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','T','S','V','U','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9'}; 
+		char[] number = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+				'N', 'O', 'P', 'Q', 'R', 'T', 'S', 'V', 'U', 'W', 'X', 'Y', 'Z',
+				'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 		Random random = new Random();
 		StringBuilder str = new StringBuilder();
 		int count =0;

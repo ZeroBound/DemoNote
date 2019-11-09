@@ -1,3 +1,5 @@
+package ProjectExample.æ‰“åœ°é¼ ;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -8,18 +10,18 @@ public class PlayMouse extends JFrame implements Runnable{
 		Thread t = new Thread(p);
 		t.start();
 	}
-	
+
 	private JLabel back;
 	private JLabel [] mouses;
 	private ImageIcon imgMouse;
 	private JLabel jtf;
 	private int number;
-	
+
 	public PlayMouse(){
-		//²»ÄÜĞŞ¸Ä½çÃæ´óĞ¡
+		//ä¸èƒ½ä¿®æ”¹ç•Œé¢å¤§å°
 		this.setResizable(false);
 		this.getContentPane().setLayout(null);
-		this.setTitle("´òµØÊó");
+		this.setTitle("æ‰“åœ°é¼ ");
 		this.setBounds(300,100,600,428);
 		back=new JLabel();
 		ImageIcon icon =new ImageIcon(this.getClass().getResource("1.jpg"));
@@ -32,6 +34,7 @@ public class PlayMouse extends JFrame implements Runnable{
 			mouses[i].setSize(imgMouse.getIconWidth(),imgMouse.getIconHeight());
 			//mouses[i].setIcon(imgMouse);
 			mouses[i].addMouseListener(new MouseAdapter(){
+				@Override
 				public void mouseClicked(MouseEvent e){
 					Object object =e.getSource();
 					System.out.println(object);
@@ -39,7 +42,7 @@ public class PlayMouse extends JFrame implements Runnable{
 						JLabel lable=(JLabel)object;
 						if(lable.getIcon()!=null){
 							number++;
-							jtf.setText("ÄãµÄµÃ·ÖÊÇ:"+number+"·Ö");
+							jtf.setText("ä½ çš„å¾—åˆ†æ˜¯:"+number+"åˆ†");
 						}
 						lable.setIcon(null);
 					}
@@ -51,7 +54,7 @@ public class PlayMouse extends JFrame implements Runnable{
 		jtf.setBounds(360,10,230,50);
 		//jtf.setFont(new Font());
 		//jtf.setForeground(Color.black);
-		jtf.setText("ÄãµÄµÃ·ÖÊÇ£º0·Ö");
+		jtf.setText("ä½ çš„å¾—åˆ†æ˜¯ï¼š0åˆ†");
 		mouses[0].setLocation(88,53);
 		mouses[1].setLocation(240,53);
 		mouses[2].setLocation(390,53);
@@ -62,13 +65,14 @@ public class PlayMouse extends JFrame implements Runnable{
 		mouses[7].setLocation(230,296);
 		mouses[8].setLocation(445,296);
 		this.getContentPane().add(jtf);
-		this.getContentPane().add(back); 
+		this.getContentPane().add(back);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-	
-	
-	
+
+
+
+	@Override
 	public void run(){
 		while(true){
 			try{
@@ -77,7 +81,7 @@ public class PlayMouse extends JFrame implements Runnable{
 				int index=(int)(Math.random()*9);
 				if(mouses[index].getIcon()==null){
 					mouses[index].setIcon(imgMouse);
-					//·´Ó¦Ê±¼ä
+					//ååº”æ—¶é—´
 					Thread.sleep(3000);
 					if(mouses[index].isShowing()){
 						mouses[index].setIcon(null);
@@ -85,7 +89,7 @@ public class PlayMouse extends JFrame implements Runnable{
 				}
 			}catch(InterruptedException e){
 				e.printStackTrace();
-			}			
+			}
 		}
 	}
 }

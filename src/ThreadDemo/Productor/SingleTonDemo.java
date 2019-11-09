@@ -1,4 +1,7 @@
 package ThreadDemo.Productor;
+/**
+ * @author zzw
+ */
 public class SingleTonDemo{
 	public static void main(String [] args){
 		/* SingleTon.getInstance();
@@ -10,30 +13,29 @@ public class SingleTonDemo{
 }
 
 class SThread implements Runnable{
+	@Override
 	public void run(){
 		SingleTon.getInstance();
 	}
 }
 
-//����ʽ����ģʽ,�̲߳���ȫ
+/**
+ * 懒汉式单例模式
+ */
 class SingleTon{
 	private static SingleTon singleTon=null;
 	private SingleTon(){
-		System.out.println("����ʽ����ģʽ");
+		System.out.println("懒汉式单例模式");
 	}
-	//����ͬ��,��֤�̰߳�ȫ,�������ܽϲ
+	//多线程中不安全 需要加上 synchronized
 	public static /*synchronized*/ SingleTon getInstance(){
 		if(singleTon==null){
-			//����һ�߳̽���,�ڶ����߳�Ҳ����.��������ʵ��������.
-			//(�����췽��ִ������)
 			singleTon=new SingleTon();
 		}
 		return singleTon;
 	}
-	//ʹ��˫�������
+
 	/* public static SingleTon getInstance(){
-		//����һ�߳̽���,newһ��ʵ������
-		//���ڶ��߳̽���ʱ,��ֱ�ӷ���
 		if(singleTon==null){
 			synchronized (SingleTon.class){
 				if(singleTon==null){
@@ -45,11 +47,13 @@ class SingleTon{
 	} */
 }
 
-//����ʽ����ģʽ
+/**
+ * 饿汉式单例模式
+ */
 class SingleTon1{
 	private static SingleTon1 singleTon =new SingleTon1();
 	private SingleTon1(){
-		System.out.println("����ʽ����ģʽ");
+		System.out.println("饿汉式单例模式");
 	}
 	public static SingleTon1 getInstance(){
 		return singleTon;

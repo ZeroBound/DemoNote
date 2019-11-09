@@ -1,4 +1,7 @@
 package ThreadDemo;
+/**
+ * @author zzw
+ */
 public class DieThreadDemo{
 	public static void main(String [] args){
 		Example example = new Example();
@@ -9,13 +12,16 @@ public class DieThreadDemo{
 		d2.start();
 	}
 }
-//避免同步块中嵌套同步块，容易出现死锁
+/**
+ * 避免同步块中嵌套同步块，容易出现死锁
+ */
 class DieThread1 extends Thread{
 	private Example example;
 	public DieThread1(Example example){
 		super();
 		this.example=example;
 	}
+	@Override
 	public void run(){
 		example.method1();
 	}
@@ -26,6 +32,7 @@ class DieThread2 extends Thread{
 		super();
 		this.example=example;
 	}
+	@Override
 	public void run(){
 		example.method2();
 	}

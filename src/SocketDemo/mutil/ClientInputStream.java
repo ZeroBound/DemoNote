@@ -8,6 +8,7 @@ public class ClientInputStream implements Runnable{
 		super();
 		this.socket=socket;
 	}
+	@Override
 	public void run(){
 		try{
 			BufferedReader br=new BufferedReader(new InputStreamReader(socket.getInputStream()));
